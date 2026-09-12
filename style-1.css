@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f5f7ff;
+  background: #080a12;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(105, 78, 255, .22), transparent 38%),
+    radial-gradient(circle at 100% 100%, rgba(0, 210, 255, .10), transparent 30%),
+    #080a12;
+}
+
+button, textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #795cff, #35c9ff);
+  box-shadow: 0 0 28px rgba(105, 92, 255, .35);
+  font-size: 24px;
+}
+
+.brand h1 {
+  font-size: 19px;
+}
+
+.brand span {
+  color: #8f96aa;
+  font-size: 12px;
+}
+
+.new-chat {
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #e9ebf5;
+  background: rgba(255,255,255,.07);
+  transition: .2s ease;
+}
+
+.new-chat:hover {
+  background: rgba(255,255,255,.13);
+  transform: translateY(-1px);
+}
+
+.chat {
+  flex: 1;
+  width: 100%;
+  padding: 55px 22px 140px;
+}
+
+.welcome {
+  text-align: center;
+  max-width: 650px;
+  margin: 8vh auto 0;
+  animation: rise .65s ease both;
+}
+
+.welcome-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  font-size: 35px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.welcome h2 {
+  font-size: clamp(30px, 6vw, 48px);
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+}
+
+.welcome p {
+  color: #9ca3b5;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: auto;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.suggestions button {
+  color: #dce0ec;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px;
+  padding: 12px 15px;
+  transition: .2s ease;
+}
+
+.suggestions button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.10);
+}
+
+.message {
+  max-width: 760px;
+  margin: 14px auto;
+  padding: 15px 17px;
+  border-radius: 18px;
+  line-height: 1.55;
+  animation: rise .25s ease both;
+}
+
+.user {
+  background: rgba(105,92,255,.16);
+  border: 1px solid rgba(105,92,255,.2);
+  margin-left: auto;
+}
+
+.ai {
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.08);
+  margin-right: auto;
+}
+
+.input-area {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 100%);
+  padding: 15px 22px 20px;
+  background: linear-gradient(transparent, #080a12 28%);
+}
+
+.input-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(20,23,34,.82);
+  backdrop-filter: blur(20px);
+  border-radius: 19px;
+  box-shadow: 0 15px 45px rgba(0,0,0,.3);
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  max-height: 140px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  padding: 10px 9px;
+  line-height: 1.4;
+}
+
+textarea::placeholder {
+  color: #777e91;
+}
+
+.send {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  color: white;
+  background: linear-gradient(135deg, #735cff, #3cbfff);
+  transition: .2s ease;
+}
+
+.send:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(90,120,255,.3);
+}
+
+.disclaimer {
+  text-align: center;
+  color: #666d80;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .header { padding: 16px; }
+  .chat { padding: 35px 15px 135px; }
+  .input-area { padding: 12px 14px 15px; }
+  .new-chat { font-size: 12px; }
+  .suggestions { flex-direction: column; }
+  .suggestions button { width: 100%; }
+}
